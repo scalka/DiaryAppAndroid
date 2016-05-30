@@ -1,5 +1,5 @@
 <ion-view title="Calendar" id="page4" style="background-color:#F4F4F4;" class=" ">
-    <ion-content padding="true" class="has-header">
+    <ion-content padding="true" class="has-header" ng-controller="newEntryCtrl">
         <ion-list id="calendar-list1" class=" calendar-list">
             <label class="item item-input" name="search-box">
                 <i class="icon ion-search placeholder-icon"></i>
@@ -21,5 +21,11 @@
                 </h2calm>
             </ion-item>
         </ion-list>
+
+        <ul>
+          <li ng-repeat="title in entries track by $index"> {{ title }}</li>
+          <li ng-repeat="content in entries track by $index">{{ content }}</li>
+        </ul>
+
     </ion-content>
 </ion-view>

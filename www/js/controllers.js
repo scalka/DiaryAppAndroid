@@ -1,6 +1,6 @@
 angular.module('app.controllers', [])
 
-.controller('MainCtrl', function($scope){
+.controller('MainCtrl', function($scope, localStorageService){
 
 })
 
@@ -8,10 +8,16 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('newEntryCtrl', function($scope) {
+.controller('newEntryCtrl', function($scope,localStorageService) {
 
-  $scope.entries = [];
 
+  var storedEntries = localStorageService.get('entries');
+  $scope.entries = storedEntries || [];
+  //angular $watch listener watches for changes in the value of $scope.entries. If someone adds or removes an entry, it will then keep local storage entries datastore in sync
+  $scope.$watch('entries', function(){
+    localStorageService.set('entries', $scope.entries);
+  }, true);
+  // add entry
   $scope.addEntry = function(){
 
     $scope.entries.push($scope.titleadded);
@@ -20,6 +26,7 @@ angular.module('app.controllers', [])
     $scope.titleadded='';
     $scope.content='';
   }
+  //remove entry
     $scope.removeEntry = function (index) {
       $scope.entries.splice(index, 1);
     };
