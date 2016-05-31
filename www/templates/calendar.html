@@ -1,31 +1,18 @@
 <ion-view title="Calendar" id="page4" style="background-color:#F4F4F4;" class=" ">
     <ion-content padding="true" class="has-header" ng-controller="newEntryCtrl">
+      <label class="item item-input" name="search-box">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="search" placeholder="">
+      </label>
         <ion-list id="calendar-list1" class=" calendar-list">
-            <label class="item item-input" name="search-box">
-                <i class="icon ion-search placeholder-icon"></i>
-                <input type="search" placeholder="">
-            </label>
-            <ion-item class="item-thumbnail-left calm  calendar-list-item" id="calendar-list-item6" ui-sref="tabsController.entryDetail">
-                <h2calm>Title
-                    <p>Entry content ..</p>
+
+            <ion-item ng-repeat="entry in entries track by $index" class="item-thumbnail-left calm  calendar-list-item"ui-sref="tabsController.entryDetail">
+
+                <h2calm>{{entry.titleEntry}}
+                    <p>{{entry.ctntEntry}}</p>
                 </h2calm>
-            </ion-item>
-            <ion-item class="item-thumbnail-left calm  calendar-list-item" id="calendar-list-item10" ui-sref="tabsController.entryDetail">
-                <h2calm>Title
-                    <p>Entry content ..</p>
-                </h2calm>
-            </ion-item>
-            <ion-item class="item-thumbnail-left calm  calendar-list-item" id="calendar-list-item9" ui-sref="tabsController.entryDetail">
-                <h2calm>Title
-                    <p>Entry content ..</p>
-                </h2calm>
+
             </ion-item>
         </ion-list>
-
-        <ul>
-          <li ng-repeat="title in entries track by $index"> {{ title }}</li>
-          <li ng-repeat="content in entries track by $index">{{ content }}</li>
-        </ul>
-
     </ion-content>
 </ion-view>
