@@ -4,9 +4,7 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('cameraCtrl', function($scope, $base64, Camera, $localStorage, $state, $sessionStorage) {
-
-      $scope.$storage = $localStorage;
+.controller('cameraCtrl', function($scope, $base64, Camera, $localStorage, $state, storage, $sessionStorage) {
 
       $scope.getPhoto = function() {
             console.log("btn clicked");
@@ -33,7 +31,10 @@ angular.module('app.controllers', [])
           //this function dosnt even get called, have to make a cetch outside before
           });
       };
-    // $scope.ownImages = $localStorage.ownImages;
+      if ($localStorage.ownImages == undefined) {
+         $localStorage.ownImages = [];
+     }
+     $scope.ownImages = $localStorage.ownImages;
 })
 
 .controller('newEntryCtrl', function($scope,localStorageService, $state) {
