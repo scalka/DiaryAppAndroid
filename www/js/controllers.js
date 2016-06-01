@@ -8,7 +8,9 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('newEntryCtrl', function($scope,localStorageService) {
+.controller('newEntryCtrl', function($scope,localStorageService, $state) {
+  // ??
+  $scope.entryId = $state.params.entryId;
 
   var storedEntries = localStorageService.get('entries');
   // array with entries
@@ -28,10 +30,12 @@ angular.module('app.controllers', [])
 
     // store entry data in an object
     var newEntry = {
-      id: localStorageService.length,
+      id: $scope.newTitle + (Math.random()), // tymczasowe rozwiazanie
       titleEntry: $scope.newTitle,
+      dateEntry: Date(),
       ctntEntry: $scope.ctntEntry
     };
+
 
     // add new entry to the model by adding it to the entries array
     $scope.entries.push(newEntry);
@@ -41,6 +45,7 @@ angular.module('app.controllers', [])
   } else {
     $scope.failed = "All fields must be filled"
   }
+  console.log( newEntry.id + newEntry.titleEntry);
 };
 
 
@@ -54,8 +59,8 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('entryDetailCtrl', function($scope) {
-
+.controller('entryDetailCtrl', function($scope, $state) {
+  $scope.entry = $state.params.entryId;
 })
 
 .controller('profileCtrl', function($scope) {

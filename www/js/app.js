@@ -26,3 +26,9 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 .config(['localStorageServiceProvider', function(localStorageServiceProvider){
   localStorageServiceProvider.setPrefix('ls');
 }])
+// filter to capitalize first letter
+.filter('capitalize', function() {
+    return function(input) {
+      return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
+    }
+});
