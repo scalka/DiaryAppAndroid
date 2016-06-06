@@ -1,17 +1,5 @@
 angular.module('app.services', [])
 
-.service('storage', [function($localStorage){
-  return {
-    addOwnImage: function(image){
-        $localStorage.ownImages = [];
-
-      // The unshift() method adds one or more elements to the beginning of an array and returns the new length of the array.
-      $localStorage.ownImages.unshift(image);
-    }
-  }
-
-}])
-
 .factory('Camera', ['$q', function($q) {
  // creating camera factory calls codova plugin to load native camera app
  //$q is used to give the controller a promise, check out the promise Api of angular for more details

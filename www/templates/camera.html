@@ -1,9 +1,9 @@
 <ion-view title="Camera" >
-    <ion-content padding="true" class="has-header" ng-controller="cameraCtrl">
+    <ion-content padding="true" class="has-header" ng-controller="newEntryCtrl">
         <button class="button button-block button-outline button-light ion-plus-round" ng-click="getPhoto()"></button>
 
-          <div ng-show="ownImage.imageData !== undefined" ng-repeat="ownImage in ownImages track by $index"></div>
-
+<!--         <div ng-show="ownImage.imageData !== undefined" ng-repeat="ownImage in ownImages track by $index"></div>
+-->
     </ion-content>
 
 </ion-view>

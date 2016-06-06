@@ -8,14 +8,15 @@
                 <input type="text" placeholder="How was your day?" ng-model="ctntEntry">
             </label>
 
-            <div style="margin: 0px; line-height: 250px; text-align: center; background-color: rgb(232, 235, 239);">
-                <i class="icon ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;"></i>
+            <div ng-repeat="img in entry.image" style="margin: 0px; line-height: 250px; text-align: center; background-color: rgb(232, 235, 239);">
+                <img ng-src="data:image/jpeg;base64, {{picture.imageData}}">
             </div>
 
             <ion-item class="item-icon-left calm  entry-song">
                 <i class="icon ion-music-note"></i>Voice note</ion-item>
 
         </form>
+        <button class="button button-block button-outline button-light ion-plus-round" ng-click="getPhoto()"></button>
 
        <a ui-sref="tabsController.calendar" class=" button button-calm  button-block entry-add-button" ng-click="addEntry()">Write</a>
 
