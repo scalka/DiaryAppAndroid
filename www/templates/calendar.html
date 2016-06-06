@@ -6,16 +6,10 @@
       </label>
         <ion-list class="calendar-list">
             <ion-item ng-repeat="entry in entries track by $index" class="item-thumbnail-left calendar-list-item" ui-sref='tabsController.entryDetail({entryId: entry.id})'>
-
+                <img ng-src="data:image/jpeg;base64, {{entry.image}}">
                 <h2>{{entry.titleEntry | capitalize}}</h2>
                 <h4>{{entry.dateEntry | limitTo: 21}}</h4>
                 <p>{{entry.ctntEntry | capitalize}}</p>
-                <div ng-repeat=" img in entry.image">
-                  <img ng-src="data:image/jpeg;base64, {{img.imageData}}">
-                </div>
-
-
-
             </ion-item>
         </ion-list>
     </ion-content>
