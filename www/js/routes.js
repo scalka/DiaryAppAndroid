@@ -7,7 +7,7 @@ angular.module('app.routes', ['ionicUIRouter'])
   .state('app',{
     url: "/app",
     abstract: true,
-    templateUrl: "templates/menu.html"
+    templateUrl: 'templates/menu.html'
   })
 
   .state('app.camera', {
@@ -51,7 +51,7 @@ angular.module('app.routes', ['ionicUIRouter'])
     }
   })
 
-  .state('profile', {
+  .state('app.profile', {
     url: '/profile',
     views: {
       'tab-profile':{

@@ -1,13 +1,8 @@
 angular.module('app.controllers', [])
 
-.controller('loginCtrl', function($scope){
+.controller('cameraCtrl', function($scope) {
 
 })
-
-.controller('cameraCtrl', function($scope, $base64, Camera, $localStorage, localStorageService, $state, storage, $sessionStorage) {
-
-})
-
 
 .controller('newEntryCtrl', function($scope, localStorageService, $state, $base64, Camera) {
   var pictureData; 
@@ -77,10 +72,9 @@ angular.module('app.controllers', [])
       console.log( $scope.imgContainer );
     };
   };
-
+  // going to entry detail
   $scope.onTap = function(index){
     $state.go('app.calendar-detail', {entryId: index});
-    console.log("click");
   };
 
 })
@@ -92,7 +86,7 @@ angular.module('app.controllers', [])
 })
 
 .controller('entryDetailCtrl', function($scope, $state) {
-  $scope.entry = $state.params.entryId;
+
 })
 
 .controller('profileCtrl', function($scope) {
@@ -100,5 +94,13 @@ angular.module('app.controllers', [])
 })
 
 .controller('settingsCtrl', function($scope) {
+
+})
+
+.controller('loginCtrl', function($scope){
+
+})
+
+.controller('registerCtrl', function($scope){
 
 })
