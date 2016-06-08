@@ -41,26 +41,34 @@ angular.module('app.routes', ['ionicUIRouter'])
   })
 
 
-  .state('app.entryDetail', {
-    url: '/entrydetail/:entryId',
+  .state('app.calendar-detail', {
+    url: '/calendar/:entryId',
     views: {
-      'tab-entrydetail': {
+      'tab-calendar': {
         templateUrl: 'templates/entryDetail.html',
         controller: 'newEntryCtrl'
       }
     }
   })
 
-  .state('app.profile', {
+  .state('profile', {
     url: '/profile',
-    templateUrl: 'templates/profile.html',
-    controller: 'profileCtrl'
+    views: {
+      'tab-profile':{
+      templateUrl: 'templates/profile.html',
+      controller: 'profileCtrl'
+      }
+    }
   })
 
   .state('app.settings', {
     url: '/settings',
-    templateUrl: 'templates/settings.html',
-    controller: 'settingsCtrl'
+    views: {
+      'tab-settings': {
+      templateUrl: 'templates/settings.html',
+      controller: 'settingsCtrl'
+      }
+    }  
   })
 
   .state('app.login',{

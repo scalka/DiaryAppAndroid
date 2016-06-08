@@ -31,18 +31,27 @@
             </ion-header-bar>
             <ion-content padding="false" class="side-menu-left has-header">
                 <ion-list data-componentid="list2">
-                    <ion-item class="item-avatar energized  menu-item-profile" href="#/app/profile" menu-close="" data-componentid="list-item11">
+
+                    <ion-item class="item-avatar energized  menu-item-profile" href="#/profile" menu-close="" data-componentid="list-item11">
                         <h2energized>Profile</h2energized>
+                        <ion-nav-view name="profile"></ion-nav-view>
                     </ion-item>
+
                     <ion-item class="item-icon-left energized  menu-item-social" data-componentid="list-item12" href="#/app/social">
-                        <i class="icon ion-ionic"></i>Social</ion-item>
+                        <i class="icon ion-ionic"></i>Social
+                        <ion-nav-view name="tab-settings"></ion-nav-view>
+                    </ion-item>
+
                     <ion-item class="item-icon-left energized  menu-item-settings" menu-close="" data-componentid="list-item13" href="#/app/settings">
-                        <i class="icon ion-settings"></i>Settings</ion-item>
+                        <i class="icon ion-settings"></i>Settings
+                    </ion-item>
 
                     <ion-item class="item-icon-left energized  menu-item-settings" menu-close="" data-componentid="list-item13" href="#/app/login">
-                        <i class="icon ion-settings"></i>Login</ion-item>
+                        <i class="icon ion-settings"></i>Login
+                    </ion-item>
                     <ion-item class="item-icon-left energized  menu-item-settings" menu-close="" data-componentid="list-item13" href="#/app/settings">
-                        <i class="icon ion-settings"></i>Register</ion-item>
+                        <i class="icon ion-settings"></i>Register
+                    </ion-item>
 
                 </ion-list>
             </ion-content>

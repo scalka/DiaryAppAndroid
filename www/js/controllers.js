@@ -13,6 +13,8 @@ angular.module('app.controllers', [])
   var pictureData; 
   // ??
   $scope.entryId = $state.params.entryId;
+  $scope.entry = $state.params.entryId;
+
   var storedEntries = localStorageService.get('entries');
   // array with entries
   $scope.entries = storedEntries || [];
@@ -28,7 +30,7 @@ angular.module('app.controllers', [])
       $scope.failed=''; // remove warning
     // store entry data in an object
     var newEntry = {
-      id: $scope.newTitle + (Math.random()), // tymczasowe rozwiazanie
+      id: $scope.newTitle, // tymczasowe rozwiazanie
       titleEntry: $scope.newTitle,
       dateEntry: Date(),
       ctntEntry: $scope.ctntEntry,
@@ -73,11 +75,19 @@ angular.module('app.controllers', [])
     } else {
       $scope.imgContainer = false;
       console.log( $scope.imgContainer );
-    }
-  }
+    };
+  };
+
+  $scope.onTap = function(index){
+    $state.go('app.calendar-detail', {entryId: index});
+    console.log("click");
+  };
+
 })
 
 .controller('calendarCtrl', function($scope) {
+ 
+
 
 })
 
