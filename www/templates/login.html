@@ -2,12 +2,21 @@
 
     <ion-content class="has-header padding">
 
-    	
+    	<section class="card login">
+    		<form name="loginForm" novalidate>
+    		<div class="textinto">
+    			<h1>Log-in</h1>
+    			<p>{{login_msg}}</p>
+    		</div>
+    		<fieldset>
+    			<input type="email" name="email" placeholder="Email">
+    			<input type="password" name="password" placeholder="Password">
+    		</fieldset>
+    		<button type="submit" class="submitt_btn">Login</button>
+    		<p>or <a ui-sref="register"> Register</a></p>
+    		</form>
+    	</section>
 
-
-
-    
     </ion-content>
-
 </ion-view>
 

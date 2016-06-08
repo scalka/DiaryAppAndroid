@@ -5,7 +5,7 @@
           <input type="search" placeholder="Search" ng-model="query">
       </label>
         <ion-list class="calendar-list">
-            <ion-item ng-repeat="entry in entries | filter: query track by $index " class="item-thumbnail-left calendar-list-item" ui-sref='tabsController.entryDetail({entryId: entry.id})'>
+            <ion-item ng-repeat="entry in entries | filter: query track by $index " class="item-thumbnail-left calendar-list-item" ui-sref='app.entryDetail({entryId: entry.id})'>
                 <img ng-src="data:image/jpeg;base64, {{entry.image}}">
                 <h2>{{entry.titleEntry | capitalize}}</h2>
                 <h4>{{entry.dateEntry | limitTo: 21}}</h4>
