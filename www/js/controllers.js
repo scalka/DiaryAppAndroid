@@ -1,12 +1,13 @@
 angular.module('app.controllers', [])
 
-.controller('MainCtrl', function($scope, localStorageService){
+.controller('loginCtrl', function($scope){
 
 })
 
 .controller('cameraCtrl', function($scope, $base64, Camera, $localStorage, localStorageService, $state, storage, $sessionStorage) {
 
 })
+
 
 .controller('newEntryCtrl', function($scope, localStorageService, $state, $base64, Camera) {
   var pictureData; 
