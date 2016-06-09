@@ -32,5 +32,23 @@ h4 {
     background-color: rgb(232, 235, 239);
 }
 .pDiv{
-  margin: 2%;
+  margin
 }
+/*login*/
+input {
+  border: 1px solid #f4f4f4;
+  border-radius: 3%;
+}
+
+.loginForm{
+
+}
+.textinto{
+
+}
+.input{
+  border: 1px solid #f4f4f4;
+  border-radius: 3%;
+}
+
+

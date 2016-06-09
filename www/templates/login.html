@@ -1,19 +1,27 @@
-<ion-view title="Login" ng-controller="loginCtrl">
+<ion-view title="Login">
 
-    <ion-content class="has-header padding">
+    <ion-content class="has-header padding" ng-controller="loginCtrl">
 
     	<section class="card login">
-    		<form name="loginForm" novalidate>
-    		<div class="textinto">
-    			<h1>Log-in</h1>
-    			<p>{{login_msg}}</p>
-    		</div>
-    		<fieldset>
-    			<input type="email" name="email" placeholder="Email">
-    			<input type="password" name="password" placeholder="Password">
-    		</fieldset>
-    		<button type="submit" class="submitt_btn">Login</button>
-    		<p>or <a ui-sref="register"> Register</a></p>
+            <!-- when submit call logi()-->
+    		<form name="loginForm" novalidate ng-submit="login()" >
+        		<div class="textinto">
+        			<h1>Log-in</h1>
+                    <p ng-show="message"> {{ message }}</p>
+        		</div>
+        		<fieldset class="input">
+        			<input type="email" name="email" placeholder="Email" ng-model="user.email" ng-required="true">
+                    <p class="error" ng-show="loginForm.email.$invalid && loginForm.email.$touched"></p>
+
+        			<input type="password" name="password" placeholder="Password">
+                    <p class="error" ng-show="loginForm.password.$invalid && loginForm.password.$touched"></p>
+
+        		</fieldset>
+
+        		<button type="submit" class="submitt_btn" ng-disabled="loginForm.$invalid">
+                Login</button>
+        		<p>or <a href="#/app/register"> Register</a></p>
+
     		</form>
     	</section>
 

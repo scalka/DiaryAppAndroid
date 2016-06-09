@@ -85,7 +85,7 @@ angular.module('app.routes', ['ionicUIRouter'])
     views: {
       'tab-register': {
         templateUrl: 'templates/register.html',
-        controller: 'registerCtrl'
+        controller: 'loginCtrl'
       }
     }
   })

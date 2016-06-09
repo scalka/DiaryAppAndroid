@@ -97,10 +97,37 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('loginCtrl', function($scope){
+.controller('loginCtrl', function($scope, $firebase)
+{
+  var auth = firebase.auth(); // holds data
 
-})
+  $scope.login = function(){
+    $scope.message = "Welcome " + $scope.user.email; 
+  }; // login
 
-.controller('registerCtrl', function($scope){
+  $scope.register = function(){
+      var email = $scope.user.email;
+      var password = $scope.user.password;
 
-})
+      firebase.auth().createUserWithEmailAndPassword(email, password).then(function(regUser){
+          $scope.message = "Welcome " + $scope.user.firstname;
+        }).catch(function(error) {
+          // Handle Errors here.
+          $scope.message = error.message;
+          // ...
+      });// createUser
+
+  }; // register
+
+  //Monitor authentication state
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      // User signed in!
+      var uid = user.uid;
+    } else {
+      // User logged out
+    }
+  });
+
+}); // controller    https://github.com/firebase/angularfire/blob/master/docs/quickstart.md
+
