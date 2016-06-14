@@ -13,7 +13,7 @@
         			<input type="email" name="email" placeholder="Email" ng-model="user.email" ng-required="true">
                     <p class="error" ng-show="loginForm.email.$invalid && loginForm.email.$touched"></p>
 
-        			<input type="password" name="password" placeholder="Password">
+        			<input type="password" name="password" placeholder="Password" ng-model="user.password">
                     <p class="error" ng-show="loginForm.password.$invalid && loginForm.password.$touched"></p>
 
         		</fieldset>

@@ -22,4 +22,44 @@ angular.module('app.services', [])
     }
 
   }
-}]);
+}])
+.factory('Authentication', function($rootScope, $firebase, $firebaseAuth, $firebaseObject, $state){
+
+  var auth = firebase.auth(); // holds data
+
+  return {
+    login: function(user){
+      var email = user.email;
+      var password = user.password;
+
+      firebase.auth().signInWithEmailAndPassword(email, password)
+      .then(function (user){
+        $state.go('newentry')
+        console.log("user logged in");
+      }).catch(function(error){
+          console.log(error);
+        });
+    }, // login
+
+    register: function(user){
+        var email = user.email;
+        var password = user.password;
+        var firstname = user.firstname;
+        var lastname = user.lastname;
+      // create user wuth email and password then add data to database and catch errors
+      firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then(function(user){
+              database.ref('user/' + user.uid).set({
+                  userId: user.uid,
+                  firstname: firstname,
+                  lastname: lastname,
+                  email: email
+                }); // set
+              console.log("data saved to database");
+          }).catch(function(error) {
+              // Handle Errors here.
+              console.log(error);
+          });// createUser
+    } // register
+  } //return
+});
