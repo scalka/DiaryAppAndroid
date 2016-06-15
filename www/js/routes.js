@@ -54,7 +54,7 @@ angular.module('app.routes', ['ionicUIRouter'])
   .state('app.profile', {
     url: '/profile',
     views: {
-      'tab-profile':{
+      'content':{
       templateUrl: 'templates/profile.html',
       controller: 'profileCtrl'
       }
@@ -64,7 +64,7 @@ angular.module('app.routes', ['ionicUIRouter'])
   .state('app.settings', {
     url: '/settings',
     views: {
-      'tab-settings': {
+      'content': {
       templateUrl: 'templates/settings.html',
       controller: 'settingsCtrl'
       }
@@ -74,7 +74,7 @@ angular.module('app.routes', ['ionicUIRouter'])
   .state('app.login',{
     url: '/login',
     views: {
-      'tab-login': {
+      'content': {
         templateUrl: 'templates/login.html',
         controller: 'loginCtrl'
       }
@@ -83,7 +83,7 @@ angular.module('app.routes', ['ionicUIRouter'])
     .state('app.register',{
     url: '/register',
     views: {
-      'tab-register': {
+      'content': {
         templateUrl: 'templates/register.html',
         controller: 'loginCtrl'
       }

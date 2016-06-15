@@ -26,6 +26,15 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 .config(['localStorageServiceProvider', function(localStorageServiceProvider){
   localStorageServiceProvider.setPrefix('ls');
 }])
+
+.config(function($ionicConfigProvider) {
+  // in route cache: false,
+  $ionicConfigProvider.views.maxCache(0);
+
+  // note that you can also chain configs
+  $ionicConfigProvider.backButton.text('Go Back').icon('ion-chevron-left');
+})
+
 // filter to capitalize first letter
 .filter('capitalize', function() {
     return function(input) {
