@@ -1,6 +1,20 @@
 <ion-view title="Camera" >
     <ion-content padding="true" class="has-header" ng-controller="newEntryCtrl">
-        <button class="button button-block button-outline button-light ion-plus-round" ng-click="getPhoto()"></button>
+       
+       <div class="list card profile-avatar-card" id="profile-card23">
+            <ion-item class="item-avatar energized  profile-avatar-list-item" id="profile-list-item15">
+                <h2energized>Item</h2energized>
+            </ion-item>
+        </div>
+        <ion-list id="profile-list4" class=" profile-list">
+            <ion-item class="energized  ">{{currentUser.firstname}}</ion-item>
+            <ion-item class="energized  ">{{currentUser.email}}</ion-item>
+            <ion-item class="energized  ">{{entries.lenght}}</ion-item>
+        </ion-list>
+
+        <button ng-controller="loginCtrl" class="submitt_btn" ng-click="logout()">Logout</button>
+        
+
 
     </ion-content>
 

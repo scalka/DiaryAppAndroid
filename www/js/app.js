@@ -22,18 +22,21 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
   });
 })
 
+// TODO RESOLVE FUNCTION FROM ROUTES when user tries to enter without logging in
+.run(function($rootScope, $location){
+    $rootScope.$on('$routeChangeError', 
+    function(event, next, previous, error){
+      if (error='AUTH_REQUIRED'){
+        $rootScope.message = 'You must log in';
+        console.log("must log in");
+      } // AUTH REQUIRED
+    }) // event info - look for event if resolve not resolved from routes
+}) // run
+
 // localStorageServiceProvider use "ls" as a localStorage name prefix so app doesn’t accidently read entries from another app using the same variable names
 .config(['localStorageServiceProvider', function(localStorageServiceProvider){
   localStorageServiceProvider.setPrefix('ls');
 }])
-
-.config(function($ionicConfigProvider) {
-  // in route cache: false,
-  $ionicConfigProvider.views.maxCache(0);
-
-  // note that you can also chain configs
-  $ionicConfigProvider.backButton.text('Go Back').icon('ion-chevron-left');
-})
 
 // filter to capitalize first letter
 .filter('capitalize', function() {

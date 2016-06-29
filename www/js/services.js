@@ -23,9 +23,21 @@ angular.module('app.services', [])
 
   }
 }])
-.factory('Authentication', function($rootScope, $firebase, $firebaseAuth, $firebaseObject, $state){
+.factory('Authentication', function($rootScope, $firebase, $firebaseAuth, $firebaseObject, $state, $location){
 
   var auth = firebase.auth(); // holds data
+
+  auth.onAuthStateChanged(function(authUser){
+    if (authUser){
+      var uid = authUser.uid;
+      var userRef = database.ref('user/' + authUser.uid);
+      var userObj = $firebaseObject(userRef);
+      $rootScope.currentUser = userObj;
+      console.log("currentUser");
+    } else {
+      $rootScope.currentUser = '';
+    }
+  });
 
   return {
     login: function(user){
@@ -34,12 +46,28 @@ angular.module('app.services', [])
 
       firebase.auth().signInWithEmailAndPassword(email, password)
       .then(function (user){
-        $state.go('newentry')
+        // TODO change view
+        $location.path('/newEntry');
+
         console.log("user logged in");
       }).catch(function(error){
           console.log(error);
         });
     }, // login
+
+    logout: function(){
+      firebase.auth().signOut().then(function() {
+          // Sign-out successful.
+          console.log("signed out");
+        }, function(error) {
+          // An error happened.
+          console.log(error);
+      });
+    }, // logout
+
+    requireAuth: function() {
+      firebase.auth().$requireAuth();
+    }, // requreAuthentucation
 
     register: function(user){
         var email = user.email;

@@ -13,7 +13,7 @@ angular.module('app.routes', ['ionicUIRouter'])
   .state('app.camera', {
     url: '/camera',
     views: {
-      'tab-camera': {
+      'content': {
         templateUrl: 'templates/camera.html',
         controller: 'cameraCtrl'
     }
@@ -23,17 +23,17 @@ angular.module('app.routes', ['ionicUIRouter'])
   .state('app.newEntry', {
     url: '/newentry',
     views: {
-      'tab-newentry': {
+      'content': {
         templateUrl: 'templates/newEntry.html',
-        controller: 'newEntryCtrl'
-      }
-    }
+        controller: 'newEntryCtrl',
+      } // 'content' 
+    } // views
   })
 
   .state('app.calendar', {
     url: '/calendar',
     views: {
-      'tab-calendar': {
+      'content': {
         templateUrl: 'templates/calendar.html',
         controller: 'calendarCtrl'
       }
@@ -44,52 +44,12 @@ angular.module('app.routes', ['ionicUIRouter'])
   .state('app.calendar-detail', {
     url: '/calendar/:entryId',
     views: {
-      'tab-calendar': {
+      'content': {
         templateUrl: 'templates/entryDetail.html',
         controller: 'newEntryCtrl'
       }
     }
   })
-
-  .state('app.profile', {
-    url: '/profile',
-    views: {
-      'content':{
-      templateUrl: 'templates/profile.html',
-      controller: 'profileCtrl'
-      }
-    }
-  })
-
-  .state('app.settings', {
-    url: '/settings',
-    views: {
-      'content': {
-      templateUrl: 'templates/settings.html',
-      controller: 'settingsCtrl'
-      }
-    }  
-  })
-
-  .state('app.login',{
-    url: '/login',
-    views: {
-      'content': {
-        templateUrl: 'templates/login.html',
-        controller: 'loginCtrl'
-      }
-    }
-  })
-    .state('app.register',{
-    url: '/register',
-    views: {
-      'content': {
-        templateUrl: 'templates/register.html',
-        controller: 'loginCtrl'
-      }
-    }
-  })
-
 
 $urlRouterProvider.otherwise('/app/newentry')
 

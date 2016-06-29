@@ -81,8 +81,6 @@ angular.module('app.controllers', [])
 
 .controller('calendarCtrl', function($scope) {
  
-
-
 })
 
 .controller('entryDetailCtrl', function($scope, $state) {
@@ -97,13 +95,18 @@ angular.module('app.controllers', [])
 
 })
 
+
 .controller('loginCtrl', function($scope, $firebase, Authentication)
 {
   $scope.login = function(){
     Authentication.login($scope.user);
   }; // login
+  $scope.logout = function(){
+    Authentication.logout();
+  }; // logout
   $scope.register = function(){
     Authentication.register($scope.user);
   }; // register
 }); // controller    https://github.com/firebase/angularfire/blob/master/docs/quickstart.md
+
 
