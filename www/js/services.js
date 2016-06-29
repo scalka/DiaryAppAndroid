@@ -66,7 +66,7 @@ angular.module('app.services', [])
         $state.go('app.newEntry');
         console.log("user logged in");
       }).catch(function(error){
-         
+         // TODO dispaying messages to the user
          var message = (error);
           console.log(error);
         });

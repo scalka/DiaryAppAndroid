@@ -99,6 +99,7 @@ angular.module('app.controllers', [])
 .controller('loginCtrl', function($scope, $firebase, Authentication)
 {
   $scope.login = function(){
+    // TODO displaying msges to the user
      $scope.message = error;
     Authentication.login($scope.user);
   }; // login
