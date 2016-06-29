@@ -19,42 +19,42 @@ angular.module('app.services', [])
       //handling the results
       return deferred.promise;
       //return a promise
-    }
+    } // getPicture
 
   }
-}])
+}]) // factory
+
 .factory('Authentication', function($rootScope, $firebase, $firebaseAuth, $firebaseObject, $state, $location){
 
   var auth = firebase.auth(); // holds data
-
+  // checks for current user
   auth.onAuthStateChanged(function(authUser){
     if (authUser){
       var uid = authUser.uid;
       var userRef = database.ref('user/' + authUser.uid);
       var userObj = $firebaseObject(userRef);
       $rootScope.currentUser = userObj;
-      console.log("currentUser");
-
+      console.log("Current User: " + authUser.email);
     } else {
+      console.log("No current user");
       $rootScope.currentUser = '';
     }
   });
 
   return {
-
+    // function to check if user is logged in called from routes.js
     requireAuth: function() {
-      
       var user = firebase.auth().currentUser;
       if (user) {
         // User is signed in.
+        console.log("requireAuth() - user is signed in");
         return true;
       } else {
         // No user is signed in.
         user.unauth();
+        console.log("requireAuth() - no user is signed in");
         return false;
       }
-
-      return Firebase.getAuth();
     }, // requreAuthentucation
 
     login: function(user){
@@ -64,9 +64,10 @@ angular.module('app.services', [])
       firebase.auth().signInWithEmailAndPassword(email, password)
       .then(function (user){
         $state.go('app.newEntry');
-
         console.log("user logged in");
       }).catch(function(error){
+         
+         var message = (error);
           console.log(error);
         });
     }, // login
@@ -80,6 +81,7 @@ angular.module('app.services', [])
           console.log(firebase.auth().currentUser);
         }, function(error) {
           // An error happened.
+          var message = (error);
           console.log(error);
       });
     }, // logout
@@ -100,6 +102,7 @@ angular.module('app.services', [])
               console.log("data saved to database");
           }).catch(function(error) {
               // Handle Errors here.
+              var message = (error);
               console.log(error);
           });// createUser
     } // register

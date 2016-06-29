@@ -26,12 +26,54 @@ $dark: #314047;
 $calm: #CDBDA7;
 $balanced: #B1CCAC;
 $energized: #694E52;
+
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "../www/lib/ionic/scss";
 ion-view,.pane,.view {
 	background-color: #F4F4F4;
 }
+.platform-ios .manual-ios-statusbar-padding{
+  padding-top:20px;
+}
+.manual-remove-top-padding{
+  padding-top:0px;
+}
+.manual-remove-top-padding .scroll{
+  padding-top:0px !important;
+}
+ion-list.manual-list-fullwidth div.list, .list.card.manual-card-fullwidth {
+  margin-left:-10px;
+  margin-right:-10px;
+}
+ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidth > .item {
+  border-radius:0px;
+  border-left:0px;
+  border-right: 0px;
+}
 
 body {
 	color: #314047;
+}
+input {
+	border: 1px solid $dark;
+}
+input.ng-invalid.ng-touched {
+	border: 1px solid $assertive;
+}
+input.ng-valid.ng-touched {
+	border: 1px solid $positive;
+}
+h2	{
+	color: #CDBDA7;
+}
+h4 {
+  color:#694E52;
+  font-weight:400;
+}
+/*entry-detail*/
+.entry-detail-div-img {
+    margin: 0px;
+    line-height: 250px;
+    text-align: center;
+    background-color: rgb(232, 235, 239);
 }

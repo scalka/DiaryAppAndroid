@@ -5,16 +5,19 @@
     	<section class="card login">
             <!-- when submit call logi()-->
     		<form name="loginForm" novalidate ng-submit="login()" >
-        		<div class="textinto">
+        		
+                <div class="textinto">
         			<h1>Log-in</h1>
                     <p ng-show="message"> {{ message }}</p>
+                    <p>{{loginForm.email.$valid}}</p>
+                    <p class="error" ng-show="loginForm.email.$invalid && loginForm.email.$touched">error</p>
+                    <p class="error" ng-show="loginForm.password.$invalid && loginForm.password.$touched">rttottt</p>
         		</div>
-        		<fieldset class="input">
-        			<input type="email" name="email" placeholder="Email" ng-model="user.email" ng-required="true">
-                    <p class="error" ng-show="loginForm.email.$invalid && loginForm.email.$touched"></p>
 
-        			<input type="password" name="password" placeholder="Password" ng-model="user.password">
-                    <p class="error" ng-show="loginForm.password.$invalid && loginForm.password.$touched"></p>
+        		<fieldset class="input">
+        			<input type="email" name="email" placeholder="Email" ng-model="user.email" ng-required="true">              
+<br>
+        			<input type="password" name="password" placeholder="Password" ng-model="user.password">  
 
         		</fieldset>
 

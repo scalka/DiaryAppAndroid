@@ -22,7 +22,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
   });
 })
 
-// TODO RESOLVE FUNCTION FROM ROUTES when user tries to enter without logging in
+// RESOLVE FUNCTION FROM ROUTES when user tries to enter without logging in
 .run(function($rootScope, $location){
     $rootScope.$on('$routeChangeError', 
     function(event, next, previous, error){
