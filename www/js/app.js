@@ -26,7 +26,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
 .run(function($rootScope, $location){
     $rootScope.$on('$routeChangeError', 
     function(event, next, previous, error){
-      if (error='AUTH_REQUIRED'){
+      if (error === "AUTH_REQUIRED"){
         $rootScope.message = 'You must log in';
         console.log("must log in");
       } // AUTH REQUIRED

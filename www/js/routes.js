@@ -2,23 +2,43 @@ angular.module('app.routes', ['ionicUIRouter'])
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
-
-
   .state('app',{
     url: "/app",
     abstract: true,
     templateUrl: 'templates/menu.html'
   })
-
+  .state('app.login', {
+    url: '/login',
+    views: {
+      'content': {
+        templateUrl: 'templates/login.html',
+        controller: 'loginCtrl',
+      } // 'content' 
+    } // views
+  })
+  .state('app.register', {
+    url: '/register',
+    views: {
+      'content': {
+        templateUrl: 'templates/register.html',
+        controller: 'loginCtrl',
+      } // 'content' 
+    } // views
+  })
   .state('app.camera', {
     url: '/camera',
     views: {
       'content': {
         templateUrl: 'templates/camera.html',
-        controller: 'cameraCtrl'
-    }
-    }
-  })
+        controller: 'cameraCtrl',
+        resolve: {
+          currentAuth: function(Authentication){
+            return Authentication.requireAuth();
+          }// currentAuth
+        } //resolve
+    } // content
+    } // views
+  }) //state
 
   .state('app.newEntry', {
     url: '/newentry',
@@ -26,6 +46,11 @@ angular.module('app.routes', ['ionicUIRouter'])
       'content': {
         templateUrl: 'templates/newEntry.html',
         controller: 'newEntryCtrl',
+         resolve: {
+          currentAuth: function(Authentication){
+            return Authentication.requireAuth();
+          }// currentAuth
+        } //resolve
       } // 'content' 
     } // views
   })
@@ -35,7 +60,12 @@ angular.module('app.routes', ['ionicUIRouter'])
     views: {
       'content': {
         templateUrl: 'templates/calendar.html',
-        controller: 'calendarCtrl'
+        controller: 'calendarCtrl',
+         resolve: {
+          currentAuth: function(Authentication){
+            return Authentication.requireAuth();
+          }// currentAuth
+        } //resolve
       }
     }
   })
@@ -46,11 +76,16 @@ angular.module('app.routes', ['ionicUIRouter'])
     views: {
       'content': {
         templateUrl: 'templates/entryDetail.html',
-        controller: 'newEntryCtrl'
+        controller: 'newEntryCtrl',
+         resolve: {
+          currentAuth: function(Authentication){
+            return Authentication.requireAuth();
+          }// currentAuth
+        } //resolve
       }
     }
   })
 
-$urlRouterProvider.otherwise('/app/newentry')
+$urlRouterProvider.otherwise('/app/login')
 
 });
