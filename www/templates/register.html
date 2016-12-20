@@ -1,0 +1,27 @@
+<ion-view title="Register" >
+
+    <ion-content class="has-header padding" ng-controller="loginCtrl">
+
+
+        <section class="card register">
+            <form name="loginForm" novalidate ng-submit="register()">
+                <div class="textinto">
+                    <h1>Register</h1>
+                    <p>To access site features</p>
+                    <p ng-show="message">{{message}}</p>
+                </div>
+                <fieldset>
+                    <input type="firstname" name="firstname" placeholder="First Name" ng-model="user.firstname" ng-required="true">
+                    <input type="lastname" name="lastname" placeholder="Last Name" ng-model="user.lastname">
+                    <input type="email" name="email" placeholder="Email" ng-required="true" ng-model="user.email">
+                    <input type="password" name="password" placeholder="Password" ng-required="true" ng-model="user.password">
+                </fieldset>
+                <button type="submit" class="submitt_btn">Register</button>
+                <p>or <a href="#/app/login"> Login</a></p>
+            </form>
+        </section>
+
+
+    </ion-content>
+</ion-view>
+

@@ -1,0 +1,21 @@
+<ion-view title="Calendar">
+    <ion-content padding="true" class="has-header" ng-controller="newEntryCtrl">
+      <label class="item item-input" name="search-box">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="search" placeholder="Search" ng-model="query">
+      </label>
+        <ion-list class="calendar-list"s>
+            <ion-item  ng-repeat="entry in entries | filter: query track by $index " class="item-thumbnail-left calendar-list-item" ng-click="onTap(entry.id)" >
+
+                <img ng-src="data:image/jpeg;base64, {{entry.image}}">
+                <h2>{{entry.titleEntry | capitalize}}</h2>
+                <h4>{{entry.dateEntry | limitTo: 21}}</h4>
+                <p>{{entry.ctntEntry | capitalize}}</p>
+
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
+
+
+

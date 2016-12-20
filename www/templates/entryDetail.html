@@ -1,0 +1,17 @@
+<ion-view title="Entry Detail">
+    <ion-content padding="true" class="has-header" ng-controller="newEntryCtrl">
+      <ion-item ng-repeat="entry in entries | filter: { id: entryId}">
+        <h2>{{entry.titleEntry | capitalize}}</h2>
+        <h4 class=" entry-detail-place">Stuttgart, Germany</h4>
+        <h4 class=" entry-detail-date">
+          {{entry.dateEntry | date: 'MM/dd/yyyy @ h:mma'}}
+        </h4>
+        <!-- szare tlo z ikonka -->
+        <div class="entry-detail-div-img">
+          <img ng-src="data:image/jpeg;base64, {{entry.image}}">
+        </div>
+
+        <div class="pDiv item-text-wrap"><p>{{entry.ctntEntry}}</p></div>
+      </ion-item>
+    </ion-content>
+</ion-view>
